@@ -54,8 +54,7 @@ def load_and_clean_users(file_path):
         reader = csv.reader(file)
     count = 0
     #skip the header
-    next(reader, None)
-
+    header = next(reader)
     for row in reader:
 
         clean_field = [re.sub(r'[^a-zA-z]', '',field) for field in row]
