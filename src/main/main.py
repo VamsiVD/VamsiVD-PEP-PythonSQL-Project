@@ -99,17 +99,11 @@ def load_and_clean_call_logs(file_path):
 # example: 1,105.0,4 - where 1 is the userId, 105.0 is the avgDuration, and 4 is the numCalls.
 def write_user_analytics(csv_file_path):
 
-    cursor.execute("SELECT userId, SUM(endTime - startTime) / COUNT(*) AS avgDuration, COUNT(*) AS numCalls FROM callLogs GROUP BY userID")
+    cursor.execute("SELECT userId, SUM(endTime - startTime AS avgDuration, COUNT(*) AS numCalls FROM callLogs GROUP BY userID")
     with open(csv_file_path, mode = "w") as file:
         writer = csv.writer(file)
         
         writer.writerows(cursor.fetchall())
-
-
-
-
-
-
 
 
 # This function will write the callLogs ordered by userId, then start time.
