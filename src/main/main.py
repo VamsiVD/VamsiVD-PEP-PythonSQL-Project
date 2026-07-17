@@ -101,6 +101,13 @@ def write_user_analytics(csv_file_path):
 
     cursor.execute("SELECT userId, COUNT(*) AS numCalls, SUM(endTime - startTime) / COUNT(*) AS avgDuration FROM callLogs GROUP BY userID")
     print(cursor.fetchall())
+    with open(csv_file_path, "w") as file:
+        writer = csv.writer
+        
+        writer.writerows(cursor.fetchall())
+
+
+
 
 
 
