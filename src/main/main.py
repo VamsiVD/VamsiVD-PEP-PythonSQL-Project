@@ -66,8 +66,8 @@ def load_and_clean_users(file_path):
                 count +=1
 
 
-    cursor.execute("SELECT * FROM users")
-    print(cursor.fetchall())
+    # cursor.execute("SELECT * FROM users")
+   # print(cursor.fetchall())
 
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
@@ -89,8 +89,8 @@ def load_and_clean_call_logs(file_path):
                 count +=1
 
 
-    cursor.execute("SELECT * FROM callLogs")
-    print(type(cursor.fetchall()))
+    # cursor.execute("SELECT * FROM callLogs")
+    # print(cursor.fetchall())
 
 
 
@@ -99,7 +99,9 @@ def load_and_clean_call_logs(file_path):
 # example: 1,105.0,4 - where 1 is the userId, 105.0 is the avgDuration, and 4 is the numCalls.
 def write_user_analytics(csv_file_path):
 
-    cursor.execute("SELECT userId,startTime,endTime FROM callLogs")
+    cursor.execute("SELECT userId, COUNT(*) AS numCalls,SUM(endTime - startTime) / numCalls AS avgDuration FROM callLogs")
+    print(cursor.fetchall())
+
 
 
 
