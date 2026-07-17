@@ -1,5 +1,6 @@
 import csv
 import sqlite3
+import re
 
 # Connect to the SQLite in-memory database
 conn = sqlite3.connect(':memory:')
