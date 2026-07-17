@@ -101,7 +101,7 @@ def write_user_analytics(csv_file_path):
 
     cursor.execute("""
     SELECT userId, 
-           CAST(SUM(endTime - startTime) AS FLOAT) / COUNT(*) AS totalDuration, 
+           CAST(SUM(endTime - startTime) AS FLOAT) / COUNT(*) AS totalDuration,
            COUNT(*) AS numCalls 
     FROM callLogs 
     GROUP BY userID
