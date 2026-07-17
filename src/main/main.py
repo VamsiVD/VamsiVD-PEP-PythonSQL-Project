@@ -105,7 +105,7 @@ def write_user_analytics(csv_file_path):
            COUNT(*) AS numCalls 
     FROM callLogs 
     GROUP BY userID
-    ORDER BY userID ASC
+    ORDER BY numCalls ASC
     """)
     data = cursor.fetchall()
     print(data)
