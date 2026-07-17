@@ -1,7 +1,6 @@
 import csv
 import sqlite3
 import re
-
 # Connect to the SQLite in-memory database
 conn = sqlite3.connect(':memory:')
 
@@ -60,11 +59,14 @@ def load_and_clean_users(file_path):
         
         for row in reader:
 
-            clean_field = [re.sub(r'[^a-zA-z]', '',field) for field in row]
-            final_field = [field for field in row if field]
-
-            if len(final_field) == 2:
-                cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, final_field[0], final_field[1]))
+            if len(row) != 2:
+                continue
+            
+            if '' or " " in row:
+                continue
+            
+            
+            cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, final_field[0], final_field[1]))
             count +=1
 
 
