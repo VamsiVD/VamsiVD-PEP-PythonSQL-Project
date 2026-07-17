@@ -119,7 +119,7 @@ def write_user_analytics(csv_file_path):
 # Then, write the ordered callLogs to orderedCalls.csv
 def write_ordered_calls(csv_file_path):
     cursor.execute("""
-    SELECT userId, startTime 
+    SELECT userId, startTime FROM callLogs
     GROUP BY userID
     ORDER BY userID ASC
     """)
