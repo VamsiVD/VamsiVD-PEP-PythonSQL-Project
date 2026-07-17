@@ -52,9 +52,11 @@ def load_and_clean_users(file_path):
     with open(file_path, mode = "r") as file:
         #read the entires as a list
         reader = csv.reader(file)
+        
+        header = next(reader)
     count = 0
-    #skip the header
-    header = next(reader)
+    
+    
     for row in reader:
 
         clean_field = [re.sub(r'[^a-zA-z]', '',field) for field in row]
