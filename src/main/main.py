@@ -104,7 +104,6 @@ def write_user_analytics(csv_file_path):
            SUM(endTime - startTime) AS totalDuration, 
            COUNT(*) AS numCalls 
     FROM callLogs 
-    GROUP BY userID
     """)
     with open(csv_file_path, mode = "w") as file:
         writer = csv.writer(file)
