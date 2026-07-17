@@ -59,15 +59,15 @@ def load_and_clean_users(file_path):
         
         for row in reader:
 
-            if len(row) != 2:
+            if len(row) == 2:
                 continue
-            
-            if '' or " " in row:
-                continue
-            
-            
-            cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, row[0], row[1]))
-            count +=1
+                
+                if any(cell.strip() == '' for cell in row):
+                    continue
+                
+                
+                cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, row[0], row[1]))
+                count +=1
 
 
     cursor.execute("SELECT * FROM users")
