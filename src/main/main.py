@@ -124,7 +124,7 @@ def write_ordered_calls(csv_file_path):
     ORDER BY userID ASC
     """)
     data = cursor.fetchall()
-    # print(data)
+    print(data)
     with open(csv_file_path, mode = "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(["userId", "startTime"])
