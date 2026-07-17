@@ -68,7 +68,7 @@ def load_and_clean_users(file_path):
             count +=1
 
 
-    print("TODO: load_users")
+    print(cursor.fetchall())
 
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
