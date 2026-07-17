@@ -89,8 +89,8 @@ def load_and_clean_call_logs(file_path):
                 count +=1
 
 
-    # cursor.execute("SELECT * FROM callLogs")
-    # print(cursor.fetchall())
+    #cursor.execute("SELECT * FROM callLogs")
+    print(cursor.fetchall())
 
 
 
