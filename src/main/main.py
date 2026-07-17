@@ -52,19 +52,19 @@ def load_and_clean_users(file_path):
     with open(file_path, mode = "r") as file:
         #read the entires as a list
         reader = csv.reader(file)
-        
+        #skip the header
         header = next(reader)
-    count = 0
-    
-    
-    for row in reader:
+        count = 0
+        
+        
+        for row in reader:
 
-        clean_field = [re.sub(r'[^a-zA-z]', '',field) for field in row]
-        final_field = [field for field in row if field]
+            clean_field = [re.sub(r'[^a-zA-z]', '',field) for field in row]
+            final_field = [field for field in row if field]
 
-        if len(final_field) == 2:
-            cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, final_field[0], final_field[1]))
-        count +=1
+            if len(final_field) == 2:
+                cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, final_field[0], final_field[1]))
+            count +=1
 
 
     print("TODO: load_users")
