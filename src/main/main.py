@@ -90,7 +90,7 @@ def load_and_clean_call_logs(file_path):
 
 
     cursor.execute("SELECT * FROM callLogs")
-    print(cursor.fetchall())
+    print(type(cursor.fetchall()))
 
 
 
@@ -99,7 +99,9 @@ def load_and_clean_call_logs(file_path):
 # example: 1,105.0,4 - where 1 is the userId, 105.0 is the avgDuration, and 4 is the numCalls.
 def write_user_analytics(csv_file_path):
 
-    print("TODO: write_user_analytics")
+    cursor.execute("SELECT userId,startTime,endTime FROM callLogs")
+
+
 
 
 # This function will write the callLogs ordered by userId, then start time.
