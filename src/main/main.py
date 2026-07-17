@@ -85,7 +85,7 @@ def load_and_clean_call_logs(file_path):
                 if any(cell.strip() == '' for cell in row):
                     continue
                           
-                cursor.execute("INSERT INTO callLogs (callId,phoneNumber,startTime,endTime,direction,userId) VALUES (?,?,?)", (count, row[0], row[1], row[2], row[3], row[4]))
+                cursor.execute("INSERT INTO callLogs (callId,phoneNumber,startTime,endTime,direction,userId) VALUES (?,?,?,?,?,?)", (count, row[0], row[1], row[2], row[3], row[4]))
                 count +=1
 
 
