@@ -66,7 +66,7 @@ def load_and_clean_users(file_path):
                 continue
             
             
-            cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, final_field[0], final_field[1]))
+            cursor.execute("INSERT INTO users (userId,firstName,lastName) VALUES (?,?,?)", (count, row[0], row[1]))
             count +=1
 
 
