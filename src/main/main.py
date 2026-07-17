@@ -111,6 +111,7 @@ def write_user_analytics(csv_file_path):
     print(data)
     with open(csv_file_path, mode = "w", newline="") as file:
         writer = csv.writer(file)
+        writer.writerow(["userId", "avgDuration", "numCalls"])
         writer.writerows(data)
 
 
