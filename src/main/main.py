@@ -104,11 +104,13 @@ def write_user_analytics(csv_file_path):
            SUM(endTime - startTime) AS totalDuration, 
            COUNT(*) AS numCalls 
     FROM callLogs 
+    GROUP BY userID
     """)
+    data = cursor.fetchall()
     with open(csv_file_path, mode = "w") as file:
         writer = csv.writer(file)
         
-        writer.writerows(cursor.fetchall())
+        writer.writerows(data)
 
 
 # This function will write the callLogs ordered by userId, then start time.
