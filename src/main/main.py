@@ -60,7 +60,6 @@ def load_and_clean_users(file_path):
         for row in reader:
 
             if len(row) == 2:
-                continue
                 
                 if any(cell.strip() == '' for cell in row):
                     continue
