@@ -120,7 +120,6 @@ def write_user_analytics(csv_file_path):
 def write_ordered_calls(csv_file_path):
     cursor.execute("""
     SELECT * FROM callLogs
-    GROUP BY userID
     ORDER BY userID ASC, startTime
     """)
     data = cursor.fetchall()
